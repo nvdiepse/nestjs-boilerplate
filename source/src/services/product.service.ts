@@ -4,12 +4,19 @@ import { ProductRepository } from 'src/repositories/product.repository';
 import { BaseService } from './base.service';
 
 @Injectable()
-export class ProductService extends BaseService<ProductModel, ProductRepository> {
-  // constructor() {
-  //   super();
+export class ProductService extends BaseService<
+  ProductModel,
+  ProductRepository
+> {
+  constructor(repository: ProductRepository) {
+    super(repository);
+  }
+
+  // getProducts(): string {
+  //   return this.repository.
   // }
 
-  getProducts(): string {
-    return 'Hello World!';
-  }
+  // async findById(id: number) {
+  //   return await this.repository.findById(id);
+  // }
 }

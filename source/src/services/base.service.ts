@@ -1,4 +1,4 @@
-import { BaseEntity, DeleteResult, Repository } from 'typeorm'
+import { BaseEntity, Repository } from 'typeorm';
 import { IBaseService } from './i.base.service';
 import { EntityId } from 'typeorm/repository/EntityId';
 
@@ -17,7 +17,7 @@ export class BaseService<T extends BaseEntity, R extends Repository<T>>
 
   // findById(id: EntityId): Promise<T> {
   //   return this.repository.findOne({
-  //     where: {"id": id}
+  //     id: id,
   //   });
   // }
 
@@ -29,12 +29,17 @@ export class BaseService<T extends BaseEntity, R extends Repository<T>>
     return this.repository.save(data);
   }
 
-  // async update(id: EntityId, data: any): Promise<T> {
-  //   await this.repository.update(id, data);
-  //   // return this.findById(id);
+  // update(id: EntityId, data: any): Promise<T> {
+  //   return this.repository.update(id, data);
   // }
 
-  delete(id: EntityId): Promise<DeleteResult> {
-    return this.repository.delete(id);
+  async update(id: EntityId, data: any): Promise<any> {
+    await this.repository.update(id, data);
+    return true;
+    // return this.findById(id);
   }
+
+  // delete(id: EntityId): Promise<DeleteResult> {
+  //   return this.repository.delete(id);`
+  // }
 }
