@@ -5,6 +5,7 @@ import { ProductController } from './controllers/product.controller';
 import { ProductService } from './services/product.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [],
       synchronize: true,
     }),
+    ScheduleModule.forRoot(),
   ],
   controllers: [AppController, ProductController],
   providers: [AppService, ProductService],
