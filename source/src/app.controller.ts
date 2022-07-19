@@ -1,11 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller("/api/v1/")
+@Controller('/api/v1/')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get("home")
+  @Get('home')
   getHello(): string {
     return this.appService.getHello();
   }

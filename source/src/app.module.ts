@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ProductController } from './controllers/product.controller';
-import { ProductService } from './services/product.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ScheduleModule } from '@nestjs/schedule';
@@ -24,7 +22,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     }),
     ScheduleModule.forRoot(),
   ],
-  controllers: [AppController, ProductController],
-  providers: [AppService, ProductService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

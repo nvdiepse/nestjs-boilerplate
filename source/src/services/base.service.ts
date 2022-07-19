@@ -1,10 +1,7 @@
 import { BaseEntity, Repository } from 'typeorm';
-import { IBaseService } from './i.base.service';
 import { EntityId } from 'typeorm/repository/EntityId';
 
-export class BaseService<T extends BaseEntity, R extends Repository<T>>
-  implements IBaseService<T>
-{
+export class BaseService<T extends BaseEntity, R extends Repository<T>> {
   protected readonly repository: R;
 
   constructor(repository: R) {
